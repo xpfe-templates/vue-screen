@@ -1,9 +1,9 @@
-# 雅布力
-雅布力客流大屏
+# vue-screen
+A Screen Page Based on Vue.js
 
 ## Installation
 
-> npm i -g xpfe-cli && xpfe init vue [project-name]
+> npm i -g xpfe-cli && xpfe init vue-screen [project-name]
 
 ## Usage
 
