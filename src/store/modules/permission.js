@@ -7,7 +7,7 @@
 */
 
 import { asyncRouterMap, constantRouterMap } from '@/router'
-import { object } from 'xp-types'
+import { deepClone } from 'xp-utils'
 
 // 通过meta.role判断是否与当前用户权限匹配
 function hasPermission (roles, route) {
@@ -40,8 +40,8 @@ const permission = {
   mutations: {
     SET_ROUTERS: (state, routers) => {
       // 使用深拷贝
-      state.addRouters = object.deepClone(routers)
-      state.routers = object.deepClone(constantRouterMap.concat(routers))
+      state.addRouters = deepClone(routers)
+      state.routers = deepClone(constantRouterMap.concat(routers))
     }
   },
   actions: {
