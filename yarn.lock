@@ -5212,9 +5212,9 @@ xp-storage@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/xp-storage/-/xp-storage-1.0.4.tgz#d70a8ec63694f84cd61596113395b97bfb8e1162"
 
-xp-utils@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/xp-utils/-/xp-utils-1.0.1.tgz#d11e093421fe9cd36958fb4e53d19f4dae6ce3ca"
+xp-utils@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/xp-utils/-/xp-utils-1.0.2.tgz#9303b66d6ba86c8a15fb3091f4fb4a1e33c4e0e2"
   dependencies:
     cross-env "^5.0.5"
 
