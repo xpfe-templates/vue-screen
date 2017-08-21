@@ -14,7 +14,7 @@ export default {
 .err401 {
   height: 100vh;
   color: #fff;
-  background-color: #2d3a4b;
+  // background-color: #2d3a4b;
   &-text {
     position: absolute;
     top: 50%;
