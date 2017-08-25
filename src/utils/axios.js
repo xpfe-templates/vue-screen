@@ -35,13 +35,10 @@ service.interceptors.response.use(
     const res = response.data
     // 通过response自定义code来标示请求状态，当code返回如下情况为权限有问题，登出并返回到登录页
     // 根据系统的状态码写判断
-    if (res.code !== '000') {
-      // 没有权限情况，code根据实际情况调整
-      if (res.code === 10004) {
-        store.dispatch('FeLogOut').then(() => {
-          location.reload() // 为了重新实例化vue-router对象 避免bug
-        })
-      }
+    if (res.code === 10004) {
+      store.dispatch('FeLogOut').then(() => {
+        location.reload() // 为了重新实例化vue-router对象 避免bug
+      })
       return Promise.reject(res.errMsg || '没有权限')
     }
     return res
