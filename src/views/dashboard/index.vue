@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss">
 .dashboard {
-  height: 100vh;
+  height: 100%;
   // background-color: #00152C;
 }
 </style>

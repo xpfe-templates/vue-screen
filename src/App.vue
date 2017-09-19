@@ -9,3 +9,9 @@ export default {
   name: 'APP'
 }
 </script>
+
+<style lang="scss">
+#app {
+  height: 100%;
+}
+</style>
