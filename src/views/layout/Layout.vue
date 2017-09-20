@@ -11,7 +11,7 @@ import { AppMain } from 'views/layout'
 
 export default {
   name: 'Layout',
-  components: { AppMain }
+  components: { AppMain },
 }
 </script>
 

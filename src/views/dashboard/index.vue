@@ -10,7 +10,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'dashboard',
   computed: {
-    ...mapGetters(['info'])
+    ...mapGetters(['info']),
   },
 }
 </script>
@@ -19,6 +19,5 @@ export default {
 <style lang="scss">
 .dashboard {
   height: 100%;
-  // background-color: #00152C;
 }
 </style>
