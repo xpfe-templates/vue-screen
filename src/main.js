@@ -14,7 +14,7 @@ import * as filters from './utils/filters'
 import './components' // 引入全局组件
 import 'screen-flexible/lib/auto' // 大屏自适应
 import 'normalize.css/normalize.css' // normalize.css 样式格式化
-import 'public/css/index.scss' // 全局样式文件
+import 'assets/css/index.scss' // 全局样式文件
 import './errLog' // 错误日志
 import './permission' // 权限
 import './mock' // 使用mockjs代理请求
