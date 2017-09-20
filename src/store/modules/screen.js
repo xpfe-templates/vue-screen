@@ -13,7 +13,7 @@ const screen = {
 
   mutations: {},
 
-  actions: {}
+  actions: {},
 }
 
 export default screen
