@@ -45,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 @import "src/public/css/mixin.scss";
 .login {
-  height: 100vh;
+  height: 100%;
   background-color: #2d3a4b;
   &-form {
     width: 300px;
