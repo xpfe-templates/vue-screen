@@ -1326,13 +1326,6 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-env@^5.0.5:
-  version "5.0.5"
-  resolved "https://registry.npmjs.org/cross-env/-/cross-env-5.0.5.tgz#4383d364d9660873dd185b398af3bfef5efffef3"
-  dependencies:
-    cross-spawn "^5.1.0"
-    is-windows "^1.0.0"
-
 cross-spawn@^3.0.0:
   version "3.0.1"
   resolved "https://registry.npmjs.org/cross-spawn/-/cross-spawn-3.0.1.tgz#1256037ecb9f0c5f79e3d6ef135e30770184b982"
@@ -2830,10 +2823,6 @@ is-utf8@^0.2.0:
   version "0.2.1"
   resolved "https://registry.npmjs.org/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
 
-is-windows@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/is-windows/-/is-windows-1.0.1.tgz#310db70f742d259a16a369202b51af84233310d9"
-
 is-wsl@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
@@ -2880,6 +2869,10 @@ js-beautify@^1.6.3:
 js-cookie@^2.1.4:
   version "2.1.4"
   resolved "https://registry.npmjs.org/js-cookie/-/js-cookie-2.1.4.tgz#da4ec503866f149d164cf25f579ef31015025d8d"
+
+js-md5@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.npmjs.org/js-md5/-/js-md5-0.6.0.tgz#d9a083b268b63f56f3d709b841a667136e2bfb06"
 
 js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
@@ -5212,11 +5205,9 @@ xp-storage@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/xp-storage/-/xp-storage-1.0.4.tgz#d70a8ec63694f84cd61596113395b97bfb8e1162"
 
-xp-utils@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/xp-utils/-/xp-utils-1.0.2.tgz#9303b66d6ba86c8a15fb3091f4fb4a1e33c4e0e2"
-  dependencies:
-    cross-env "^5.0.5"
+xp-utils@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.npmjs.org/xp-utils/-/xp-utils-1.0.9.tgz#442757bd46e4ab48aed06218e3b009f53ef0514b"
 
 xtend@^4.0.0:
   version "4.0.1"
