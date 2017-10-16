@@ -30,5 +30,6 @@ new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App)
+  template: '<App/>',
+  components: { App },
 })
