@@ -4,6 +4,17 @@
 // @import './element-ui.scss';
 // @import '../fonts/iconfont.css'; // iconfont直接使用download的，减小更新成本
 
+// 禁止选中文字
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+// 不显示scrollbar
+::-webkit-scrollbar {
+  display: none;
+}
+
 html, #app, .app-main {
   height: 100%;
 }

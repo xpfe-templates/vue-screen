@@ -9,7 +9,7 @@
 // const env = process.env.NODE_ENV
 const isProd = process.env.NODE_ENV === 'production'
 
-const baseURL = isProd ? 'http://api.example.com' : 'http://testapi.example.com'
+const baseURL = isProd ? 'http://api.example.com' : 'https://boss.startdtapi.com'
 const htmlTitle = isProd ? 'Vue Screen' : 'Vue Screen - dev'
 
 module.exports = {

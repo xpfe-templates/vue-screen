@@ -10,11 +10,13 @@ import axios from 'axios'
 import store from '../store'
 import router from '../router'
 import appConfig from '@/appConfig'
-// import { getToken } from 'utils/auth'
+
+const CODE_SUCCESS = 200
 
 // 创建axios实例
 const service = axios.create({
   baseURL: appConfig.baseURL,
+  method: 'POST',
   timeout: 10000,
   withCredentials: true, // 需要登录权限的要带cookie
 })
@@ -36,20 +38,21 @@ service.interceptors.response.use(
     const res = response.data
     // 通过response自定义code来标示请求状态，当code返回如下情况为权限有问题，登出并返回到登录页
     // 根据系统的状态码写判断
-    if (res.code !== 200) {
-      // 无权限需要重新登录
-      if (res.code === 30002 || res.code === 30004) {
-        store.dispatch('FeLogOut').then(() => {
-          router.push({ path: '/login' })
-        })
-      }
-      return Promise.reject(res.errorMsg || '没有权限')
+    if (res.code === CODE_SUCCESS) {
+      return Promise.resolve(res)
     }
-    return res
+    // 无权限需要重新登录
+    if (res.code === 30002 || res.code === 30004) {
+      store.dispatch('FeLogOut').then(() => {
+        router.push({ path: '/login' })
+      })
+      return Promise.reject(res)
+    }
+    return Promise.reject(res)
   },
   error => {
     console.log('err' + error)
-    return Promise.reject(error)
+    return Promise.reject(error || '系统异常')
   }
 )
 

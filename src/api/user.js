@@ -8,20 +8,16 @@
 
 import fetch from 'utils/axios'
 
-export function login (userName, pwd) {
-  let data = { userName, pwd }
-  data.redirectUri = 'http://localhost:3000'
-  data.operateClientId = 'startdt-admin'
+export function login (data) {
   return fetch({
-    baseURL: 'http://192.168.2.202:8080', // 调用账号中心
+    baseURL: 'https://auth.startdtapi.com', // 调用账号中心
     url: '/login',
     method: 'post',
     data,
   })
 }
 
-export function loginback (accessToken, userId) {
-  const data = { accessToken, userId }
+export function loginback (data) {
   return fetch({
     url: '/back',
     method: 'post',

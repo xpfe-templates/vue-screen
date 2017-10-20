@@ -3,11 +3,11 @@
   <form class="login-form">
     <li class="login-form__item">
       <span>用户名</span>
-      <input type="text" v-model="userInfo.username">
+      <input type="text" v-model="userInfo.userName">
     </li>
     <li class="login-form__item">
       <span>密码</span>
-      <input type="password" v-model="userInfo.password">
+      <input type="password" v-model="userInfo.pwd">
     </li>
     <li class="login-form__btn" @click="onSubmit">登录</li>
   </form>
@@ -20,8 +20,8 @@ export default {
   data () {
     return {
       userInfo: {
-        username: 'admin',
-        password: ''
+        userName: 'zhouxiaojiang@startdt.com',
+        pwd: 'hello1234'
       }
     }
   },
@@ -32,7 +32,8 @@ export default {
       //   console.log('please input password')
       //   return
       // }
-      this.$store.dispatch('Login', this.userInfo).then(() => {
+      const data = this.userInfo
+      this.$store.dispatch('Login', data).then(() => {
         this.$router.push({ path: '/' })
       }).catch(err => {
         console.log(err)

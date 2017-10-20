@@ -16,13 +16,16 @@ import 'normalize.css/normalize.css' // normalize.css 样式格式化
 import 'assets/css/index.scss' // 全局样式文件
 import './errLog' // 错误日志
 import './permission' // 权限
-import './mock' // 使用mockjs代理请求
+// import './mock' // 使用mockjs代理请求
 import 'screen-flexible/lib/auto' // 大屏自适应
 
 // 注册全局filters
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
+
+// 禁止长按弹出菜单
+// window.addEventListener('contextmenu', e => { e.preventDefault() })
 
 Vue.config.productionTip = false // 取消启动时的提示
 
