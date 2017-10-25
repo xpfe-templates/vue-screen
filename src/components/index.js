@@ -7,12 +7,12 @@
 */
 
 import Vue from 'vue'
-// import ElementUI from 'element-ui'
-// import 'element-ui/lib/theme-default/index.css'
+
+// vue-echarts插件
+import VueEcharts from 'vue-echarts'
+Vue.component('chart', VueEcharts)
 
 const components = []
-
-// Vue.use(ElementUI)
 components.forEach((component) => {
   Vue.component(component.name, component)
 })

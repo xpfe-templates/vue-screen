@@ -20,7 +20,7 @@ export default {
   data () {
     return {
       userInfo: {
-        userName: 'zhouxiaojiang@startdt.com',
+        userName: 'admin@startdt.com',
         pwd: 'hello1234'
       }
     }

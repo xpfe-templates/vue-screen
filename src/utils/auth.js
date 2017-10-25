@@ -9,7 +9,7 @@
 // 根据需要选择localStorage还是cookies
 // localstorage
 import storage from 'xp-storage'
-const TokenKey = 'YBL-Token'
+const TokenKey = 'Admin-Token'
 
 export function getToken () {
   return storage.get(TokenKey)

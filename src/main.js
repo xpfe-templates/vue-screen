@@ -8,15 +8,14 @@
 
 import Vue from 'vue'
 import App from './App'
-import router from './router'
-import store from './store'
-import * as filters from './utils/filters'
-import './components' // 引入全局组件
+import router from '@/router'
+import store from '@/store'
 import 'normalize.css/normalize.css' // normalize.css 样式格式化
 import 'assets/css/index.scss' // 全局样式文件
-import './errLog' // 错误日志
-import './permission' // 权限
-// import './mock' // 使用mockjs代理请求
+import * as filters from 'utils/filters'
+import '@/components' // 引入全局组件
+import '@/errLog' // 错误日志
+import '@/permission' // 权限
 import 'screen-flexible/lib/auto' // 大屏自适应
 
 // 注册全局filters
@@ -25,7 +24,9 @@ Object.keys(filters).forEach(key => {
 })
 
 // 禁止长按弹出菜单
-// window.addEventListener('contextmenu', e => { e.preventDefault() })
+if (process.env.NODE_ENV === 'production') {
+  window.addEventListener('contextmenu', e => { e.preventDefault() })
+}
 
 Vue.config.productionTip = false // 取消启动时的提示
 

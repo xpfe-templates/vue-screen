@@ -1,6 +1,6 @@
 <template>
 <div class="dashboard">
-  <p style="color: #fff;">我是首页</p>
+  <p style="color: #fff;font-size:48px;">我是首页</p>
 </div>
 </template>
 

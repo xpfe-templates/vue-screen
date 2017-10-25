@@ -7,28 +7,29 @@
 */
 
 import axios from 'axios'
-import store from '../store'
-import router from '../router'
+import store from '@/store'
+import router from '@/router'
 import appConfig from '@/appConfig'
 
-const CODE_SUCCESS = 200
+const CODE_SUCCESS = 0 // 请求成功
 
 // 创建axios实例
 const service = axios.create({
   baseURL: appConfig.baseURL,
-  method: 'POST',
-  timeout: 10000,
-  withCredentials: true, // 需要登录权限的要带cookie
+  timeout: 10 * 1000,
+  withCredentials: process.env.NODE_ENV !== 'development', // 需要登录权限的要带cookie
 })
 
 // request拦截器
 service.interceptors.request.use(config => {
   // 添加统一信息
-  if (!config.data) config.data = {} // data没有传默认为{}
-  config.data.deviceInfo = 'pc'
+  if (!config.data) config.data = {}
+  // config.data.deviceInfo = 'screen'
+  // 采用入侵式传参，需要删除多余的入参
+  config.method = config.data.requestMethod || 'post'
+  delete config.data.requestMethod
   return config
 }, error => {
-  console.log('err' + error)
   Promise.reject(error)
 })
 
@@ -51,8 +52,8 @@ service.interceptors.response.use(
     return Promise.reject(res)
   },
   error => {
-    console.log('err' + error)
-    return Promise.reject(error || '系统异常')
+    console.log('err:' + error)
+    return Promise.reject({ errorMsg: '系统异常' })
   }
 )
 
