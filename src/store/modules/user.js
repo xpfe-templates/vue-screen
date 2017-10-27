@@ -8,7 +8,7 @@
 
 import md5 from 'js-md5'
 import api from 'api/urls'
-import request from 'utils/axios'
+import request from 'api/request'
 import appConfig from '@/appConfig'
 import { getToken, setToken, removeToken } from 'utils/auth' // setToken removeToken
 import { deepClone } from 'xp-utils'
