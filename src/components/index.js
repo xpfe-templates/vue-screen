@@ -8,10 +8,6 @@
 
 import Vue from 'vue'
 
-// vue-echarts插件
-import VueEcharts from 'vue-echarts'
-Vue.component('chart', VueEcharts)
-
 const components = []
 components.forEach((component) => {
   Vue.component(component.name, component)

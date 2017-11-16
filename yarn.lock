@@ -1306,7 +1306,7 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@*, commander@2.11.x, commander@^2.9.0, commander@~2.11.0:
+commander@2.11.x, commander@^2.9.0, commander@~2.11.0:
   version "2.11.0"
   resolved "https://registry.npmjs.org/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
 
@@ -1740,12 +1740,6 @@ ecc-jsbn@~0.1.1:
   resolved "https://registry.npmjs.org/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
   dependencies:
     jsbn "~0.1.0"
-
-echarts@^3.6.0:
-  version "3.7.2"
-  resolved "https://registry.npmjs.org/echarts/-/echarts-3.7.2.tgz#3b37764d8bc0c8ab49cbea16bc0b55726451caaa"
-  dependencies:
-    zrender "^3.6.2"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -3234,10 +3228,6 @@ lodash.clonedeep@^4.3.2:
   version "4.5.0"
   resolved "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
 
-lodash.debounce@^4.0.8:
-  version "4.0.8"
-  resolved "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
-
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.npmjs.org/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -3438,12 +3428,6 @@ mkdirp@0.5.1, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
-
-mockjs@^1.0.1-beta3:
-  version "1.0.1-beta3"
-  resolved "https://registry.npmjs.org/mockjs/-/mockjs-1.0.1-beta3.tgz#d234f3c27256397564f2c955142e891909537209"
-  dependencies:
-    commander "*"
 
 ms@2.0.0:
   version "2.0.0"
@@ -5287,13 +5271,6 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-echarts@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.npmjs.org/vue-echarts/-/vue-echarts-2.4.1.tgz#138ec92a03fd08e87e9cf9d2a5e71f6a907f971a"
-  dependencies:
-    echarts "^3.6.0"
-    lodash.debounce "^4.0.8"
-
 vue-hot-reload-api@^2.2.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.2.0.tgz#9a21b35ced3634434a43ee80efb7350ea8fb206d"
@@ -5573,7 +5550,3 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
-
-zrender@^3.6.2:
-  version "3.6.3"
-  resolved "https://registry.npmjs.org/zrender/-/zrender-3.6.3.tgz#e3a06ba105cc45eb36492a818e7b7ae879a7b15b"

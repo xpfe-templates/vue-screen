@@ -1,11 +1,11 @@
 <template>
 <div class="login">
   <form class="login-form">
-    <li class="login-form__item">
+    <li class="login-form__item u-clearfix">
       <span>用户名</span>
       <input type="text" v-model="userInfo.userName">
     </li>
-    <li class="login-form__item">
+    <li class="login-form__item u-clearfix">
       <span>密码</span>
       <input type="password" v-model="userInfo.pwd">
     </li>
@@ -44,7 +44,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/css/mixin.scss";
 .login {
   height: 100%;
   background-color: #2d3a4b;
@@ -54,7 +53,6 @@ export default {
     margin: 0 auto;
     padding-top: 200px;
     &__item {
-      @include clearfix;
       margin-top: 10px;
       color: #fff;
       span {

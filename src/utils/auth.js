@@ -9,18 +9,18 @@
 // 根据需要选择localStorage还是cookies
 // localstorage
 import storage from 'xp-storage'
-const TokenKey = 'Admin-Token'
+import tokenKey from '@/appConfig'
 
 export function getToken () {
-  return storage.get(TokenKey)
+  return storage.get(tokenKey)
 }
 
 export function setToken (token) {
-  return storage.set(TokenKey, token)
+  return storage.set(tokenKey, token)
 }
 
 export function removeToken () {
-  return storage.remove(TokenKey)
+  return storage.remove(tokenKey)
 }
 
 // cookies
