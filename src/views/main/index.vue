@@ -1,23 +1,18 @@
 <template>
-<div class="dashboard">
+<div class="main">
   <p style="color: #fff;font-size:48px;">我是首页</p>
 </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
-  name: 'dashboard',
-  computed: {
-    ...mapGetters(['info']),
-  },
+  name: 'main',
 }
 </script>
 
 
 <style lang="scss">
-.dashboard {
+.main {
   height: 100%;
 }
 </style>
