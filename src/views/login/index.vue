@@ -1,16 +1,21 @@
 <template>
 <div class="login">
-  <form class="login-form">
-    <li class="login-form__item u-clearfix">
-      <span>用户名</span>
-      <input type="text" v-model="userInfo.userName">
-    </li>
-    <li class="login-form__item u-clearfix">
-      <span>密码</span>
-      <input type="password" v-model="userInfo.pwd">
-    </li>
-    <li class="login-form__btn" @click="onSubmit">登录</li>
-  </form>
+  <h2 class="login-title">奇点云数据可视化系统</h2>
+  <div class="login-slogon">
+    <span>数据智能</span>
+    <span>驱动未来</span>
+  </div>
+  <el-form class="login-form" :model="userInfo" :rules="rules" ref="form" label-position="top">
+    <el-form-item label="用户名" prop="userName">
+      <el-input v-model="userInfo.userName" placeholder="用户名"></el-input>
+    </el-form-item>
+    <el-form-item label="登录密码" prop="pwd">
+      <el-input v-model="userInfo.pwd" type="password" placeholder="登录密码"></el-input>
+    </el-form-item>
+    <el-form-item style="margin-bottom: 0;">
+      <el-button class="login-form__btn" type="primary" @click="onSubmit">登录</el-button>
+    </el-form-item>
+  </el-form>
 </div>
 </template>
 
@@ -20,23 +25,28 @@ export default {
   data () {
     return {
       userInfo: {
-        userName: 'admin@startdt.com',
-        pwd: 'hello1234'
+        userName: 'screen@startdt.com',
+        pwd: 'hello1234',
+      },
+      rules: {
+        userName: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+        pwd: [{ required: true, message: '请输入密码', trigger: 'blur' }],
       }
     }
   },
 
   methods: {
-    onSubmit () {
-      // if (!this.userInfo.password) {
-      //   console.log('please input password')
-      //   return
-      // }
-      const data = this.userInfo
-      this.$store.dispatch('Login', data).then(() => {
-        this.$router.push({ path: '/' })
-      }).catch(err => {
-        console.log(err)
+    onSubmit() {
+      this.$refs.form.validate(valid => {
+        if (valid) {
+          this.$store.dispatch('Login', this.userInfo)
+          .then(res => {
+            this.$router.push({ path: '/' })
+          })
+          .catch(err => {
+            this.$message.error(err.codeDesc)
+          });
+        }
       })
     }
   },
@@ -44,40 +54,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "src/assets/css/mixin.scss";
 .login {
+  position: relative;
   height: 100%;
-  background-color: #2d3a4b;
+  color: #fff;
+  background: url("../../assets/img/img-bg-login.jpg") no-repeat;
+  background-size: cover;
+  &-title {
+    padding: 20px 0 0 20px;
+    font-size: 16px;
+  }
+  &-slogon {
+    position: absolute;
+    top: 300px;
+    left: 180px;
+    font-size: 24px;
+    letter-spacing: 20px;
+  }
   &-form {
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    padding-top: 200px;
-    &__item {
-      margin-top: 10px;
-      color: #fff;
-      span {
-        float: left;
-        width: 100px;
-        line-height: 30px;
-        text-align: right;
-      }
-      input {
-        float: left;
-        width: 190px;
-        height: 30px;
-        line-height: 30px;
-        margin-left: 10px;
-      }
-    }
+    box-sizing: border-box;
+    position: absolute;
+    right: 100px;
+    top: 180px;
+    width: 360px;
+    padding: 32px;
+    background: #fff;
+    border-radius: 4px;
     &__btn {
-      display: inline-block;
-      margin: 30px 0 0 110px;
-      width: 150px;
-      line-height: 40px;
-      color: #fff;
-      text-align: center;
-      background: #20a0ff;
-      cursor: pointer;
+      width: 100%;
+      margin-top: 32px;
     }
   }
 }
