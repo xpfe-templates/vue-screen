@@ -11,7 +11,7 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="less">
 .main {
   height: 100%;
 }
