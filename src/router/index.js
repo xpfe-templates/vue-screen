@@ -8,12 +8,9 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-let env = 'development'
-if (process.env.NODE_ENV !== 'development') {
-  env = 'production'
-}
-const _import = require('./_import_' + env)
 
+// 按需加载
+const _import = file => () => import('@/views/' + file + '.vue').then(m => m.default)
 Vue.use(Router)
 
 /**
