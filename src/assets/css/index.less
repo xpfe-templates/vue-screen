@@ -1,7 +1,3 @@
-@import './mixin.less';
-@import './reset.less';
-// @import '../fonts/iconfont.css'; // iconfont直接使用download的，减小更新成本
-
 // 禁止选中文字
 * {
   -webkit-touch-callout: none;
@@ -24,13 +20,22 @@ body {
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
 }
 
-// 常用mixin注入，使用u-xxx表示
+// 抽离的样式
+@import './mixin.less'; // less mixin
+
+// 常用mixin预设样式，一般用u-xxx
 .u-clearfix {
   .clearfix();
 }
 .u-ellipsis {
-  .textEllipsis();
+  .ellipsis();
 }
-.u-break {
-  .textBreak();
+.u-ellipsis-2 {
+  .multiEllipsis(2);
+}
+.u-ellipsis-3 {
+  .multiEllipsis(3);
+}
+u-boxshadow {
+  .boxShadow();
 }
