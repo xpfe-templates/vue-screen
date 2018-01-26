@@ -30,7 +30,7 @@ export const constMap = [
 ]
 
 export default new Router({
-  mode: 'hashj', // 需要nginx支持，如果不需要暴露URL的，例如大屏，可以改为hash
+  mode: 'hash', // 需要nginx支持，如果不需要暴露URL的，例如大屏，可以改为hash
   scrollBehavior: () => ({ y: 0 }),
   routes: constMap
 })

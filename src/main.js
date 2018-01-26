@@ -17,7 +17,7 @@ import * as filters from '@/utils/filters'
 import '@/components' // 引入全局组件
 import '@/errLog' // 错误日志
 import '@/permission' // 权限
-import 'screen-flexible/lib/auto' // 大屏自适应
+import 'screen-flexible/dist/auto' // 大屏自适应
 
 // 注册全局filters
 Object.keys(filters).forEach(key => {
