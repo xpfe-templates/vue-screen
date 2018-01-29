@@ -1,46 +1,113 @@
 /**
  * @author xiaoping
  * @email edwardhjp@gmail.com
- * @create date 2017-10-16 11:16:57
- * @modify date 2017-11-16 08:26:01
- * @desc [配置信息]
+ * @create date 2017-08-03 12:05:37
+ * @modify date 2018-01-29 10:26:16
+ * @desc [axios改造]
 */
 
-const env = process.env.NODE_ENV
+import axios from 'axios'
 
-// 用户自动部署目录，必须和git目录或者jenkins的创建目录一致，影响路由
-const gitDir = 'vue-admin'
-let htmlTitle = 'Vue Admin - dev'
+import router from '@/router'
+import appConfig from '@/appConfig'
 
-// auth相关
-const clientId = '' // 应用名称
-const redirectUri = '' // auth登录跳转链接
-const authCodes = [2003] // 没有权限的错误码
-let authUrl = 'http://116.62.148.115:8082' // auth接口
+// 创建axios实例
+const service = axios.create({
+  baseURL: appConfig.baseUrl,
+  timeout: 10 * 1000,
+  withCredentials: true, // 需要登录权限的要带cookie
+})
+const CancelToken = axios.CancelToken
+const source = CancelToken.source()
 
-// api相关
-let baseUrl = 'http://apitest.example.com' // api接口
+// request拦截器
+service.interceptors.request.use(
+  config => {
+    // 是否在ajaxing中的判断，同请求只允许存在一个
+    if (config.oneAjax) {
+      config.cancelToken = source.token
+      if (!window.oneAjax) window.oneAjax = {}
+      if (window.oneAjax[config.url]) { // 已经有一个再执行，下一个直接cancel
+        source.cancel()
+      }
+      window.oneAjax[config.url] = true
+    }
+    // 修正method，默认为post
+    if (config.requestMethod) {
+      config.requestMethod = config.requestMethod.toLocaleLowerCase()
+    }
+    config.method = config.requestMethod || 'post'
+    // 添加统一信息
+    config.data = config.data || {}
+    if (config.method === 'get') {
+      config.params = config.data
+      config.data = {}
+    }
+    return config
+  },
+  error => {
+    Promise.reject(error)
+  }
+)
 
-// 前期mock，联调时候注释
-baseUrl = 'https://www.easy-mock.com/mock/5a0bf56bdbfe9e4cbd641706/unmanned'
-authUrl = 'https://www.easy-mock.com/mock/59f02babb120c445fab92be2/account'
+// response拦截器
+service.interceptors.response.use(
+  response => {
+    let res = response.data
+    // 兼容auth老系统代码
+    if (res.code !== undefined) { // 这是auth系统的老代码
+      res = {
+        success: res.code === 200,
+        codeNum: res.code,
+        codeDesc: res.msg || res.errorMsg,
+        value: res.data,
+      }
+    } else {
+      // 兼容value=""的情况，如果isArray存在，代表默认的返回是[]
+      if (!res.value) {
+        res.value = response.config.isArray ? [] : {}
+      }
+    }
+    // 是否在ajaxing中的判断，同请求只允许存在一个
+    if (response.config.oneAjax) {
+      if (!window.oneAjax) window.oneAjax = {}
+      window.oneAjax[response.config.url] = false
+    }
+    // debug 打印结果
+    if (response.config.console) {
+      console.log('url:', response.config.url)
+      console.log('res:', res.value)
+    }
+    // success表示业务成功，直接resolve
+    if (res.success) {
+      return Promise.resolve(res)
+    }
+    // 没有权限
+    if (appConfig.authCodes.includes(res.codeNum)) {
+      router.push({ path: '/login' })
+    }
+    return Promise.reject(res)
+  },
+  error => {
+    // 已经被cancel的请求会到error中
+    if (axios.isCancel(error)) {
+      return Promise.reject({
+        success: false,
+        codeNum: -1,
+        codeDesc: '请求中',
+        value: {},
+      })
+    } else if (error.config.oneAjax) { // 初始化window.oneAjax对象
+      if (!window.oneAjax) window.oneAjax = {}
+      window.oneAjax[error.config.url] = false
+    }
+    // debug 打印结果
+    if (error.config.console) {
+      console.log('url:', error.config.url)
+      console.log('res:', error.value)
+    }
+    return Promise.reject({ codeDesc: '系统异常' })
+  }
+)
 
-if (env === 'production') { // 生产环境
-  htmlTitle = 'Vue Admin'
-  authUrl = 'https://auth.startdtapi.com'
-  baseUrl = 'http://api.example.com'
-} else if (env === 'testing') { // 测试环境
-  htmlTitle = 'Vue Admin - test'
-  authUrl = 'http://116.62.148.115:8082'
-  baseUrl = 'http://apitest.example.com'
-}
-
-module.exports = {
-  gitDir,
-  htmlTitle,
-  baseUrl,
-  clientId,
-  redirectUri,
-  authCodes,
-  authUrl,
-}
+export default service
