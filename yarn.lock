@@ -4979,9 +4979,9 @@ schema-utils@^0.3.0:
   dependencies:
     ajv "^5.0.0"
 
-screen-flexible@^1.1.9:
-  version "1.1.9"
-  resolved "https://registry.npmjs.org/screen-flexible/-/screen-flexible-1.1.9.tgz#0667fa60cedbd8d30530291a6996f06bf0ccd96f"
+screen-flexible@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/screen-flexible/-/screen-flexible-1.2.2.tgz#4f6f6c9984902ac98978f232078d133d6cf2683b"
   dependencies:
     xp-dom "^1.0.6"
 
@@ -5940,17 +5940,17 @@ xp-dom@^1.0.6:
   version "1.0.6"
   resolved "https://registry.npmjs.org/xp-dom/-/xp-dom-1.0.6.tgz#fdf030174cccbc97eae4ec1f787587110d434608"
 
-xp-reset.css@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/xp-reset.css/-/xp-reset.css-1.0.1.tgz#c42cc46f361fc78138f02efdf18486f6447e0e3b"
+xp-reset.css@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/xp-reset.css/-/xp-reset.css-1.0.3.tgz#03bfe243f0555156650a1d9b25ab8ac48c54b404"
 
 xp-storage@^1.0.6:
   version "1.0.6"
   resolved "https://registry.npmjs.org/xp-storage/-/xp-storage-1.0.6.tgz#ace629f3b0ae58dda2c1214a8b168dae18d591bb"
 
-xp-utils@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.npmjs.org/xp-utils/-/xp-utils-1.1.7.tgz#3f1e79fc0f62b218c8242413ec739f4d884f84cd"
+xp-utils@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/xp-utils/-/xp-utils-1.1.9.tgz#ee158a26dbf98f1769fb2037d14523b4fee53de7"
 
 xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.1"
