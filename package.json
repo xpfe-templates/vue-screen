@@ -1,7 +1,7 @@
 {
-  "name": "vue-screen",
+  "name": "{{projectName}}",
   "version": "1.0.0",
-  "description": "A Screen Page Based on Vue.js",
+  "description": "A screen project named {{projectName}}",
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
